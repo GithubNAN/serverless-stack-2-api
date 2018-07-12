@@ -1,10 +1,10 @@
 import stripePackage from "stripe";
-import { calculateCose } from "./libs/billing-lib";
+import { calculateCost } from "./libs/billing-lib";
 import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context, callback) {
   const { storage, source } = JSON.parse(event.body);
-  const amount = calculateCose(storage);
+  const amount = calculateCost(storage);
   const description = "Scratch charge";
 
   // Load our secret key from the environment variables
